@@ -1,3 +1,6 @@
+
+# to run the container  docker run -p 4242:4242 sample-stripe1
+# to build the container  docker build -t sample-stripe1 .  
 # Accept a payment
 
 A Java implementation for creating a PaymentIntent on the server.
