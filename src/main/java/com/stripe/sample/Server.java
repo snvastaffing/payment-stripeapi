@@ -63,11 +63,11 @@ public class Server {
             "https://github.com/stripe-samples"
         );
 
-        staticFiles.externalLocation(
-          Paths.get(
-            Paths.get("").toAbsolutePath().toString(),
-            dotenv.get("STATIC_DIR")
-          ).normalize().toString());
+        // staticFiles.externalLocation(
+        //   Paths.get(
+        //     Paths.get("").toAbsolutePath().toString(),
+        //     dotenv.get("STATIC_DIR")
+        //   ).normalize().toString());
 
         get("/config", (request, response) -> {
             response.type("application/json");
