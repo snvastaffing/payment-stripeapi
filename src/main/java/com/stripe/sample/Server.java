@@ -52,9 +52,9 @@ public class Server {
 
     public static void main(String[] args) {
         port(4242);
-        Dotenv dotenv = Dotenv.load();
+        //Dotenv dotenv = Dotenv.load();
 
-        Stripe.apiKey = dotenv.get("STRIPE_SECRET_KEY");
+        Stripe.apiKey = "sk_test_51MencyLCpKFSNbigoKWnU7XqCHd01Ls4PeOmGQBOpW6pTHYylLzLbPLTvrOoDbCAMGKQFxN1ya0HomUcWz6bAKOZ005PrxGG2D";//dotenv.get("STRIPE_SECRET_KEY");
 
         // For sample support and debugging, not required for production:
         Stripe.setAppInfo(
@@ -72,7 +72,7 @@ public class Server {
         get("/config", (request, response) -> {
             response.type("application/json");
 
-            return gson.toJson(new ConfigResponse(dotenv.get("STRIPE_PUBLISHABLE_KEY")));
+            return gson.toJson(new ConfigResponse("pk_test_51MencyLCpKFSNbigYkyfaYET6WrGhMyazwOfEN2NKFpNeCqzLu1VZUVUhm818mkbMLxnQ1t28qs2Lxl3G2NTy9fq00fCERR0U7"));//dotenv.get("STRIPE_PUBLISHABLE_KEY")));
         });
 
         get("/create-payment-intent", (request, response) -> {
@@ -106,7 +106,7 @@ public class Server {
         post("/webhook", (request, response) -> {
             String payload = request.body();
             String sigHeader = request.headers("Stripe-Signature");
-            String endpointSecret = dotenv.get("STRIPE_WEBHOOK_SECRET");
+            String endpointSecret = "whsec_1234";//dotenv.get("STRIPE_WEBHOOK_SECRET");
 
             Event event = null;
 
